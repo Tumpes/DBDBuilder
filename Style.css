@@ -1,0 +1,59 @@
+body{
+    background-image: url(Img/bg.jpg);
+    background-size: 100%;
+}
+
+.float-texti{
+    color: #8e9ba0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+#itemholder  {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    height: 30em;
+    padding: 150px;
+    left: 5%;
+    top: 25%;
+}
+
+#itemholder * {
+
+}
+
+#perkit {
+    position: absolute;
+    transform: translateY(250px);
+}
+
+#perkit * {
+width: 180px;
+height: auto;
+}
+
+#renameditem {
+    transform: translateY(-100px);
+    padding-right: 7px;
+}
+
+#raddon{
+    padding-right: 7px;
+}
+
+#plussa {
+    transform: translateY(50px);
+}
+
+#hakukenttäholder {
+    position: absolute;
+    transform: translateY(450px);
+}
+
+#hakukenttäholder2 {
+    position: absolute;
+    
+    transform: translate(10px, 180px);
+}

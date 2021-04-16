@@ -116,5 +116,7 @@ function haku(juttu, kenttänum) {
 }
 
 function upd(juttu, hakutulos) {
-    document.getElementById(juttu).src = "Img/Perkit/"+hakutulos+".png";
+    if (hakutulos==null) document.getElementById(juttu).src = "Img/Placeholder_item.png";
+    else if (hakutulos=="null") document.getElementById(juttu).src = "Img/Placeholder_item.png";
+    else { document.getElementById(juttu).src = "Img/Perkit/"+hakutulos+".png" };
 }

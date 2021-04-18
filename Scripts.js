@@ -86,7 +86,7 @@ function validate(v) {
     exception = false;
     try{
         if (v == "") throw "tyhjä";
-        if (v.length < 4) throw "liian lyhyt!"
+        if (v.length < 3) throw "liian lyhyt!"
     }
     catch (err) {
         console.log(err);
@@ -99,7 +99,7 @@ function validate(v) {
 }
 
 function append(input) {
-    window.history.pushState('page2', 'Title', '/Index.html?p1='+input.perk1+'&p2='+input.perk2+'&p3='+input.perk3+'&p4='+input.perk4+'&i='+input.item+'&a1='+input.addon+'&a2='+input.addon2);
+    window.history.pushState('State', 'Title', '/Index.html?p1='+input.perk1+'&p2='+input.perk2+'&p3='+input.perk3+'&p4='+input.perk4+'&i='+input.item+'&a1='+input.addon+'&a2='+input.addon2);
 }
 
 function haku(juttu, kenttänum) {

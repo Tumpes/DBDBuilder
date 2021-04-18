@@ -4,6 +4,7 @@ body{
 }
 
 .float-texti{
+    position: absolute;
     color: #8e9ba0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -31,6 +32,8 @@ height: auto;
 }
 
 #renameditem {
+    position: relative;
+    top: 65px;
     transform: translateY(-100px);
     padding-right: 7px;
 }

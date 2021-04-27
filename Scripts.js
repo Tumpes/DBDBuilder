@@ -17,11 +17,45 @@
     addon2:""
     };
 
+    var tiedosto = ""
+    var Addonlist = ""
+    var Itemlist = ""
+    var Perklist = ""
+    var Powerlist = ""
+
+    function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                 allText = rawFile.responseText;
+                 tiedosto = allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
     function sleep (ms) {
         return new Promise(res => setTimeout(res,ms));
       }
 
       async function alku() {
+
+    readTextFile("Img/Addon.txt");
+    Addonlist = tiedosto; 
+    readTextFile("Img/Item.txt");
+    Itemlist = tiedosto;
+    readTextFile("Img/Perk.txt");
+    Perklist = tiedosto;
+    readTextFile("Img/Power.txt");
+    Powerlist = tiedosto;
+
           sleep(2000);
           var url_string = window.location;
           var url = new URL(url_string);
@@ -102,21 +136,27 @@ function append(input) {
     window.history.pushState('State', 'Title', '/Index.html?p1='+input.perk1+'&p2='+input.perk2+'&p3='+input.perk3+'&p4='+input.perk4+'&i='+input.item+'&a1='+input.addon+'&a2='+input.addon2);
 }
 
+function perseilyesto(juttu) {
+    if (juttu.includes("perk")) kansio = "Perks"
+    else if (juttu.includes("addon")) kansio =  "ItemAddons"
+    else if (juttu.includes("item")) kansio = "Items"
+}
+
 function haku(juttu, kenttänum) {
     hakutulos = kenttänum.value;
     valid = validate(hakutulos);
-    if (valid == 1) { dir = document.getElementById(juttu).src = "Img/Perkit/"+hakutulos+".png";
+    perseilyesto(juttu);
+    if (valid == 1) { document.getElementById(juttu).src = "Img/"+kansio+"/"+hakutulos+".png";
     data[juttu] = hakutulos;
     append(data)
     console.log(valid)
     }
     else return;
-
-    console.log(dir);
 }
 
 function upd(juttu, hakutulos) {
+    perseilyesto(juttu);
     if (hakutulos==null) document.getElementById(juttu).src = "Img/Placeholder_item.png";
     else if (hakutulos=="null") document.getElementById(juttu).src = "Img/Placeholder_item.png";
-    else { document.getElementById(juttu).src = "Img/Perkit/"+hakutulos+".png" };
+    else { document.getElementById(juttu).src = "Img/"+kansio+"/"+hakutulos+".png" };
 }
